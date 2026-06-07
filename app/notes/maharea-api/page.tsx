@@ -148,7 +148,9 @@ export default function MahaRERAArticle() {
           <div className="flex flex-wrap items-center gap-3 text-sm text-muted mb-8">
             <span className="font-mono">Aadith S</span>
             <span>·</span>
-            <span>2026</span>
+            <span>Jun 2026</span>
+            <span>·</span>
+            <span>8 min read</span>
             <span>·</span>
             <span>InfraLens</span>
           </div>
@@ -456,8 +458,43 @@ completion_date          2024-12-31       2025-06-30`}</Pre>
           record. That&apos;s where the real engineering begins.
         </P>
 
-        {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        {/* Further Reading */}
+        <div className="mt-16 border border-border rounded-lg p-6 bg-surface">
+          <p className="text-xs font-mono text-muted uppercase tracking-widest mb-5">
+            Further Reading
+          </p>
+          <ul className="space-y-3">
+            {[
+              {
+                label: "InfraLens GitHub Repository",
+                href: "https://github.com/AadithS13/InfraLens",
+              },
+              {
+                label: "FlowOrchestrator",
+                href: "https://github.com/AadithS13/FlowOrchestrator",
+              },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/aadith-suresh/",
+              },
+            ].map(({ label, href }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-base text-subtle hover:text-text transition-colors"
+                >
+                  <span className="text-green">•</span>
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Footer nav */}
+        <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <Link
             href="/#notes"
             className="inline-flex items-center gap-2 text-sm text-muted hover:text-text transition-colors"
