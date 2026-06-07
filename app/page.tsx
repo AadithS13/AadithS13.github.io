@@ -145,6 +145,14 @@ const notes = [
     tags: ["Go", "Data Engineering", "Reverse Engineering", "InfraLens"],
     status: "published" as "draft" | "published",
   },
+  {
+    title: "Designing Snapshot-Based Change Detection Systems",
+    slug: "/notes/snapshot-change-detection",
+    description:
+      "How to detect what changed in an external data source you don't control — checksums, field-level diffing, snapshot storage, and the design tradeoffs at scale.",
+    tags: ["Go", "PostgreSQL", "System Design", "Data Engineering"],
+    status: "published" as "draft" | "published",
+  },
 ];
 
 const currentlyBuilding = [
