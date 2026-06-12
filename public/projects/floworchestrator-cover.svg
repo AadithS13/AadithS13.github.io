@@ -1,0 +1,133 @@
+<svg width="1400" height="360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="640" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="65%" stop-color="#0a0a0a" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="1"/>
+    </linearGradient>
+    <marker id="a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,1 L5,3 L0,5 Z" fill="#252525"/>
+    </marker>
+    <marker id="ab" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,1 L5,3 L0,5 Z" fill="#60a5fa44"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="360" fill="#0a0a0a"/>
+  <rect width="1400" height="360" fill="url(#glow)"/>
+
+  <!-- Subtle horizontal rules -->
+  <line x1="0" y1="116" x2="1400" y2="116" stroke="#0f0f0f" stroke-width="1"/>
+  <line x1="0" y1="236" x2="1400" y2="236" stroke="#0f0f0f" stroke-width="1"/>
+
+  <!-- Top accent stripe -->
+  <rect x="0" y="0" width="200" height="2.5" fill="#60a5fa" opacity="0.55"/>
+
+  <!-- ── LEFT PANEL ──────────────────────────────── -->
+
+  <!-- Title + subtitle -->
+  <text x="60" y="65" font-family="monospace" font-size="32" font-weight="600" fill="#60a5fa">FlowOrchestrator</text>
+  <text x="60" y="91" font-family="monospace" font-size="12" fill="#333" letter-spacing="0.4">Distributed Workflow Orchestration Engine</text>
+
+  <line x1="60" y1="108" x2="560" y2="108" stroke="#161616" stroke-width="1"/>
+
+  <!-- Key traits row -->
+  <text x="60"  y="136" font-family="monospace" font-size="13" font-weight="600" fill="#c0c0c0">Kafka</text>
+  <text x="60"  y="152" font-family="monospace" font-size="9"  fill="#333">async events</text>
+
+  <text x="180" y="136" font-family="monospace" font-size="13" font-weight="600" fill="#c0c0c0">Idempotent</text>
+  <text x="180" y="152" font-family="monospace" font-size="9"  fill="#333">per-attempt keys</text>
+
+  <text x="330" y="136" font-family="monospace" font-size="13" font-weight="600" fill="#60a5fa">DLQ</text>
+  <text x="330" y="152" font-family="monospace" font-size="9"  fill="#333">dead letter queue</text>
+
+  <line x1="60" y1="168" x2="560" y2="168" stroke="#161616" stroke-width="1"/>
+
+  <!-- Feature list -->
+  <text x="60" y="190" font-family="monospace" font-size="10.5" fill="#2d2d2d">›  Kafka-based async state machine</text>
+  <text x="60" y="210" font-family="monospace" font-size="10.5" fill="#2d2d2d">›  Idempotency keys scoped per attempt</text>
+  <text x="60" y="230" font-family="monospace" font-size="10.5" fill="#2d2d2d">›  Dead Letter Queue with recovery path</text>
+  <text x="60" y="250" font-family="monospace" font-size="10.5" fill="#2d2d2d">›  Prometheus metrics + Grafana dashboard</text>
+
+  <line x1="60" y1="267" x2="560" y2="267" stroke="#161616" stroke-width="1"/>
+
+  <!-- Tech badges -->
+  <rect x="60"  y="279" width="30"  height="18" rx="3" fill="#0f0f0f" stroke="#1c1c1c"/>
+  <text x="75"  y="291.5" font-family="monospace" font-size="9" fill="#444" text-anchor="middle">Go</text>
+
+  <rect x="98"  y="279" width="42"  height="18" rx="3" fill="#0f0f0f" stroke="#1c1c1c"/>
+  <text x="119" y="291.5" font-family="monospace" font-size="9" fill="#444" text-anchor="middle">Kafka</text>
+
+  <rect x="148" y="279" width="70"  height="18" rx="3" fill="#0f0f0f" stroke="#1c1c1c"/>
+  <text x="183" y="291.5" font-family="monospace" font-size="9" fill="#444" text-anchor="middle">PostgreSQL</text>
+
+  <rect x="226" y="279" width="72"  height="18" rx="3" fill="#0f0f0f" stroke="#1c1c1c"/>
+  <text x="262" y="291.5" font-family="monospace" font-size="9" fill="#444" text-anchor="middle">Prometheus</text>
+
+  <rect x="306" y="279" width="50"  height="18" rx="3" fill="#0f0f0f" stroke="#1c1c1c"/>
+  <text x="331" y="291.5" font-family="monospace" font-size="9" fill="#444" text-anchor="middle">Grafana</text>
+
+  <rect x="364" y="279" width="44"  height="18" rx="3" fill="#0f0f0f" stroke="#1c1c1c"/>
+  <text x="386" y="291.5" font-family="monospace" font-size="9" fill="#444" text-anchor="middle">Docker</text>
+
+  <!-- ── VERTICAL DIVIDER ────────────────────────── -->
+  <line x1="618" y1="22" x2="618" y2="338" stroke="#141414" stroke-width="1"/>
+
+  <!-- ── RIGHT PANEL: State Machine ──────────────── -->
+  <text x="1009" y="38" font-family="monospace" font-size="8.5" fill="#242424" text-anchor="middle" letter-spacing="3">STATE MACHINE</text>
+
+  <!-- Success path labels -->
+  <text x="796" y="52" font-family="monospace" font-size="8" fill="#222" text-anchor="middle" letter-spacing="1">SUCCESS PATH</text>
+
+  <!-- Row 1: PENDING → PROCESSING → COMPLETED -->
+  <!-- PENDING: x=636..806, center=721 -->
+  <rect x="636" y="56" width="170" height="40" rx="5" fill="#0d0d0d" stroke="#1c1c1c"/>
+  <text x="721" y="72"  font-family="monospace" font-size="10" fill="#484848" text-anchor="middle">PENDING</text>
+  <text x="721" y="87"  font-family="monospace" font-size="8"  fill="#282828" text-anchor="middle">order created</text>
+
+  <!-- Arrow PENDING → PROCESSING -->
+  <line x1="806" y1="76" x2="856" y2="76" stroke="#252525" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- PROCESSING: x=858..1068, center=963 -->
+  <rect x="858" y="56" width="210" height="40" rx="5" fill="#0a0f1a" stroke="#60a5fa33" stroke-width="1.5"/>
+  <text x="963" y="72"  font-family="monospace" font-size="10" fill="#60a5fa" text-anchor="middle">PROCESSING</text>
+  <text x="963" y="87"  font-family="monospace" font-size="8"  fill="#2a3a5a" text-anchor="middle">Kafka consumer · idempotency key</text>
+
+  <!-- Arrow PROCESSING → COMPLETED -->
+  <line x1="1068" y1="76" x2="1118" y2="76" stroke="#252525" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- COMPLETED: x=1120..1340, center=1230 -->
+  <rect x="1120" y="56" width="220" height="40" rx="5" fill="#0b160b" stroke="#4ade8033" stroke-width="1.5"/>
+  <text x="1230" y="72"  font-family="monospace" font-size="10" fill="#4ade80" text-anchor="middle">COMPLETED ✓</text>
+  <text x="1230" y="87"  font-family="monospace" font-size="8"  fill="#2a4a2a" text-anchor="middle">order fulfilled · event emitted</text>
+
+  <!-- Arrow PROCESSING ↓ RETRYING -->
+  <line x1="963" y1="96"  x2="963" y2="148" stroke="#252525" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="978" y="126" font-family="monospace" font-size="8" fill="#1e1e1e">on failure</text>
+
+  <!-- Row 2: RETRYING_PAYMENT: x=858..1068, center=963 -->
+  <rect x="858" y="150" width="210" height="40" rx="5" fill="#0d0d0d" stroke="#1c1c1c"/>
+  <text x="963" y="167" font-family="monospace" font-size="10" fill="#484848" text-anchor="middle">RETRYING_PAYMENT</text>
+  <text x="963" y="182" font-family="monospace" font-size="8"  fill="#282828" text-anchor="middle">exponential backoff · 3 attempts</text>
+
+  <!-- Arrow RETRYING ↓ DLQ -->
+  <line x1="963" y1="190" x2="963" y2="240" stroke="#252525" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="978" y="220" font-family="monospace" font-size="8" fill="#1e1e1e">max retries</text>
+
+  <!-- Row 3: DLQ: x=858..1068 -->
+  <rect x="858" y="242" width="210" height="40" rx="5" fill="#150a0a" stroke="#60a5fa22"/>
+  <text x="963" y="259" font-family="monospace" font-size="10" fill="#60a5fa88" text-anchor="middle">DEAD_LETTER_QUEUE</text>
+  <text x="963" y="274" font-family="monospace" font-size="8"  fill="#2a2030" text-anchor="middle">manual review · replay support</text>
+
+  <!-- Kafka label above PROCESSING -->
+  <rect x="880" y="22" width="166" height="26" rx="4" fill="#080810" stroke="#60a5fa22"/>
+  <text x="963" y="39" font-family="monospace" font-size="9" fill="#60a5fa55" text-anchor="middle">kafka: order.events</text>
+  <line x1="963" y1="48" x2="963" y2="56" stroke="#60a5fa22" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#ab)"/>
+
+  <!-- Bottom fade -->
+  <rect width="1400" height="360" fill="url(#fade)"/>
+</svg>

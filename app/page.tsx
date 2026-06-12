@@ -86,7 +86,7 @@ const projects = [
     stack: ["Go", "PostgreSQL", "pg_trgm", "Cron", "SMTP", "Webhooks", "Claude API"],
     github: "https://github.com/AadithS13/InfraLens",
     architecture: "/projects/infralens-architecture.svg",
-    image: "/projects/infralens-placeholder.svg",
+    image: "/projects/infralens-cover.svg",
     imageAlt: "InfraLens pipeline architecture",
     highlights: [
       "Reverse engineered 7 undocumented MahaRERA APIs",
@@ -119,7 +119,7 @@ const projects = [
     stack: ["Go", "Kafka", "PostgreSQL", "Prometheus", "Grafana", "Docker"],
     github: "https://github.com/AadithS13/FlowOrchestrator",
     architecture: "/projects/floworchestrator-grafana.png",
-    image: "/projects/floworchestrator-grafana.png",
+    image: "/projects/floworchestrator-cover.svg",
     imageAlt: "FlowOrchestrator Grafana dashboard",
     highlights: [
       "Kafka-based async state machine with RETRYING_PAYMENT and DLQ states",
