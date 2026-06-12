@@ -81,9 +81,9 @@ const projects = [
     name: "InfraLens",
     emoji: "🚀",
     tagline:
-      "Construction intelligence platform that crawls MahaRERA, tracks project-level changes over time, delivers real-time notifications, and supports natural language queries.",
+      "AI-powered construction intelligence platform that crawls MahaRERA, tracks project-level changes, delivers real-time notifications, and enables natural language search over 47k+ projects.",
     description:
-      "InfraLens is a construction intelligence platform that crawls MahaRERA, tracks project-level changes over time, delivers real-time notifications through email and webhooks, provides relevance-ranked search, and supports natural language queries powered by rule-based and LLM-assisted search.\n\nBuilt with Go, PostgreSQL, pg_trgm, cron scheduling, SMTP/webhook adapters, and Claude-powered query parsing.",
+      "InfraLens is an AI-powered construction intelligence platform that crawls MahaRERA, tracks project-level changes over time, delivers real-time notifications through email and webhooks, and enables natural language search over 47k+ projects using rule-based and LLM-assisted parsing.\n\nBuilt with Go, PostgreSQL, pg_trgm, cron scheduling, SMTP/webhook adapters, and Claude-powered query parsing.",
     badges: ["Go", "PostgreSQL", "pg_trgm", "Claude API"],
     stack: ["Go", "PostgreSQL", "pg_trgm", "Cron", "SMTP", "Webhooks", "Claude API"],
     github: "https://github.com/AadithS13/InfraLens",
@@ -115,6 +115,7 @@ const projects = [
     emoji: "⚙️",
     tagline:
       "Kafka-powered workflow engine with retries, DLQ processing, idempotency, and production-grade observability.",
+    metrics: ["Kafka", "Retry Engine", "DLQ", "Observability"],
     description:
       "Distributed workflow orchestration platform built with Go and Kafka, featuring retries, DLQ handling, idempotent processing, observability, and fault-tolerant order processing.",
     badges: ["Go", "Kafka", "Prometheus", "Grafana"],
@@ -288,6 +289,18 @@ export default function Home() {
                       </p>
                     </div>
                   </div>
+
+                  {/* Metric strip */}
+                  {"metrics" in project && project.metrics && (
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-4 font-mono text-xs">
+                      {project.metrics.map((m, mi) => (
+                        <span key={m} className="flex items-center gap-3">
+                          {mi > 0 && <span className="text-border">|</span>}
+                          <span className="text-green">{m}</span>
+                        </span>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Description */}
                   <div className="space-y-2 mb-4">

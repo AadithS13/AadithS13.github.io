@@ -28,16 +28,16 @@
 
   <!-- Title + subtitle -->
   <text x="60" y="65" font-family="monospace" font-size="36" font-weight="600" fill="#4ade80">InfraLens</text>
-  <text x="60" y="91" font-family="monospace" font-size="12" fill="#333" letter-spacing="0.4">Construction Intelligence Platform</text>
+  <text x="60" y="91" font-family="monospace" font-size="12" fill="#333" letter-spacing="0.4">AI-Powered Construction Intelligence Platform</text>
 
   <line x1="60" y1="108" x2="560" y2="108" stroke="#161616" stroke-width="1"/>
 
   <!-- Stats row -->
   <text x="60" y="142" font-family="monospace" font-size="28" font-weight="600" fill="#d4d4d4">47,832+</text>
-  <text x="60" y="161" font-family="monospace" font-size="9.5" fill="#333">projects indexed</text>
+  <text x="60" y="161" font-family="monospace" font-size="9.5" fill="#333">Projects Tracked</text>
 
   <text x="240" y="142" font-family="monospace" font-size="28" font-weight="600" fill="#d4d4d4">7</text>
-  <text x="240" y="161" font-family="monospace" font-size="9.5" fill="#333">APIs reverse-engineered</text>
+  <text x="240" y="161" font-family="monospace" font-size="9.5" fill="#333">APIs Reverse-Engineered</text>
 
   <text x="352" y="142" font-family="monospace" font-size="28" font-weight="600" fill="#4ade80">V7</text>
   <text x="352" y="161" font-family="monospace" font-size="9.5" fill="#333">AI-Powered Search</text>
