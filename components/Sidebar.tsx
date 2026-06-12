@@ -60,10 +60,10 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop sidebar — w-64 */}
-      <aside className="hidden md:flex fixed left-0 top-0 h-screen w-64 border-r border-border bg-surface flex-col p-7 z-40">
+      <aside className="hidden md:flex fixed left-0 top-0 h-screen w-64 border-r border-border bg-surface/75 backdrop-blur-md flex-col p-7 z-40">
         {/* Avatar + name */}
         <div className="mb-8">
-          <div className="w-24 h-24 rounded-full overflow-hidden mb-4 ring-1 ring-border">
+          <div className="w-24 h-24 rounded-full overflow-hidden mb-4 ring-1 ring-border transition-all duration-500 hover:ring-green/60 hover:shadow-[0_0_24px_-4px_rgba(74,222,128,0.4)]">
             <Image
               src="/profile.jpeg"
               alt="Aadith S"
@@ -123,10 +123,10 @@ export default function Sidebar() {
             <button
               key={id}
               onClick={() => scrollTo(id)}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded text-sm w-full text-left transition-colors ${
+              className={`flex items-center gap-3 px-3 py-2.5 rounded text-sm w-full text-left transition-all duration-200 ${
                 active === id
-                  ? "bg-border text-text"
-                  : "text-muted hover:text-subtle hover:bg-border/40"
+                  ? "bg-border text-text translate-x-1"
+                  : "text-muted hover:text-subtle hover:bg-border/40 hover:translate-x-1"
               }`}
             >
               <Icon size={14} className="flex-shrink-0" />

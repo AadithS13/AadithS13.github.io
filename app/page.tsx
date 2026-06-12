@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Github, Mail, Linkedin, MapPin, ArrowUpRight, BookOpen } from "lucide-react";
 import Sidebar from "@/components/Sidebar";
+import Reveal from "@/components/Reveal";
+import GlowCard from "@/components/GlowCard";
 
 /* ─── Data ───────────────────────────────────────────────────── */
 
@@ -197,10 +199,10 @@ const interests = [
 /* ─── Section heading ────────────────────────────────────────── */
 function SectionHeading({ title }: { title: string }) {
   return (
-    <div className="mb-8">
+    <Reveal className="mb-8">
       <h2 className="text-3xl font-semibold text-text">{title}</h2>
-      <div className="w-10 h-0.5 bg-green mt-2" />
-    </div>
+      <div className="heading-bar w-10 h-0.5 bg-green mt-2" />
+    </Reveal>
   );
 }
 
@@ -218,20 +220,27 @@ export default function Home() {
           <SectionHeading title="About" />
 
           {/* Hero tagline */}
-          <p className="text-xl text-text font-medium leading-snug mb-5">
-            Backend Engineer building distributed systems, data platforms, and
-            AI-powered search systems using Go.
-          </p>
+          <Reveal>
+            <p className="text-xl font-medium leading-snug mb-5">
+              <span className="gradient-text">
+                Backend Engineer building distributed systems, data platforms,
+                and AI-powered search systems using Go.
+              </span>
+              <span className="cursor-blink font-mono">▍</span>
+            </p>
+          </Reveal>
 
-          <p className="text-base text-subtle leading-relaxed">
-            I&apos;m <span className="text-text font-medium">Aadith S</span>, a
-            Bengaluru-based backend software engineer with ~3 years of experience
-            designing and managing event-driven microservices. I&apos;ve authored
-            technical design documents and led the delivery of critical systems
-            — KYC deduplication, site deduplication, and deal mining flows.
-            Proficient in Go, Kafka, gRPC, and PostgreSQL, with a strong emphasis
-            on data integrity and system reliability.
-          </p>
+          <Reveal delay={120}>
+            <p className="text-base text-subtle leading-relaxed">
+              I&apos;m <span className="text-text font-medium">Aadith S</span>, a
+              Bengaluru-based backend software engineer with ~3 years of experience
+              designing and managing event-driven microservices. I&apos;ve authored
+              technical design documents and led the delivery of critical systems
+              — KYC deduplication, site deduplication, and deal mining flows.
+              Proficient in Go, Kafka, gRPC, and PostgreSQL, with a strong emphasis
+              on data integrity and system reliability.
+            </p>
+          </Reveal>
         </section>
 
         {/* ── Currently Building ────────────────────────────── */}
@@ -239,13 +248,12 @@ export default function Home() {
           <SectionHeading title="Currently Building" />
           <ul className="space-y-3">
             {currentlyBuilding.map((item, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 text-base text-subtle leading-relaxed"
-              >
-                <span className="text-green mt-1 flex-shrink-0">•</span>
-                {item}
-              </li>
+              <Reveal key={i} delay={i * 80}>
+                <li className="flex items-start gap-3 text-base text-subtle leading-relaxed">
+                  <span className="text-green mt-1 flex-shrink-0">•</span>
+                  {item}
+                </li>
+              </Reveal>
             ))}
           </ul>
         </section>
@@ -254,18 +262,16 @@ export default function Home() {
         <section id="projects" className="mb-20 scroll-mt-8">
           <SectionHeading title="Projects" />
           <div className="space-y-6">
-            {projects.map((project) => (
-              <div
-                key={project.name}
-                className="group border border-border rounded-lg overflow-hidden bg-surface hover:border-muted transition-colors"
-              >
+            {projects.map((project, pi) => (
+              <Reveal key={project.name} delay={pi * 100}>
+              <GlowCard className="group border border-border rounded-lg overflow-hidden bg-surface transition-colors">
                 {/* Screenshot */}
                 <div className="relative w-full h-52 overflow-hidden bg-bg border-b border-border">
                   <Image
                     src={project.image}
                     alt={project.imageAlt}
                     fill
-                    className="object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity"
+                    className="object-cover object-top opacity-80 group-hover:opacity-100 group-hover:scale-[1.025] transition-all duration-700 ease-out"
                     unoptimized
                   />
                 </div>
@@ -337,7 +343,7 @@ export default function Home() {
                     {project.badges.map((b) => (
                       <span
                         key={b}
-                        className="text-xs font-mono text-subtle border border-border px-2.5 py-1 rounded-full"
+                        className="chip text-xs font-mono text-subtle border border-border px-2.5 py-1 rounded-full"
                       >
                         {b}
                       </span>
@@ -366,7 +372,8 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </GlowCard>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -376,7 +383,8 @@ export default function Home() {
           <SectionHeading title="Experience" />
           <div className="space-y-10">
             {experience.map((job, i) => (
-              <div key={i}>
+              <Reveal key={i} delay={i * 90}>
+              <div>
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-3">
                   <div>
                     <h3 className="text-lg font-semibold text-text">{job.role}</h3>
@@ -399,6 +407,7 @@ export default function Home() {
                   <div className="mt-8 border-t border-border" />
                 )}
               </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -408,14 +417,16 @@ export default function Home() {
           <SectionHeading title="Awards & Recognition" />
           <div className="space-y-3">
             {awards.map((award) => (
-              <div key={award.title} className="flex items-start gap-4 border border-border rounded-lg p-5 bg-surface">
-                <span className="text-green text-lg mt-0.5 flex-shrink-0">🏆</span>
-                <div>
-                  <p className="text-base font-semibold text-text">{award.title}</p>
-                  <p className="text-sm text-subtle mt-0.5">{award.description}</p>
-                  <p className="text-xs font-mono text-muted mt-1">{award.event} · {award.org}</p>
-                </div>
-              </div>
+              <Reveal key={award.title}>
+                <GlowCard className="flex items-start gap-4 border border-border rounded-lg p-5 bg-surface">
+                  <span className="text-green text-lg mt-0.5 flex-shrink-0">🏆</span>
+                  <div>
+                    <p className="text-base font-semibold text-text">{award.title}</p>
+                    <p className="text-sm text-subtle mt-0.5">{award.description}</p>
+                    <p className="text-xs font-mono text-muted mt-1">{award.event} · {award.org}</p>
+                  </div>
+                </GlowCard>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -424,10 +435,10 @@ export default function Home() {
         <section id="oss" className="mb-20 scroll-mt-8">
           <SectionHeading title="Open Source" />
           <div className="space-y-4">
-            {oss.map((item) => (
-              <div
-                key={item.title}
-                className="border border-border rounded-lg p-5 bg-surface hover:border-muted transition-colors"
+            {oss.map((item, i) => (
+              <Reveal key={item.title} delay={i * 80}>
+              <GlowCard
+                className="border border-border rounded-lg p-5 bg-surface transition-colors"
               >
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <h3 className="text-base font-semibold text-text">{item.title}</h3>
@@ -447,13 +458,14 @@ export default function Home() {
                   {item.tags.map((t) => (
                     <span
                       key={t}
-                      className="text-xs font-mono text-muted border border-border px-2.5 py-1 rounded-full"
+                      className="chip text-xs font-mono text-muted border border-border px-2.5 py-1 rounded-full"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-              </div>
+              </GlowCard>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -462,11 +474,12 @@ export default function Home() {
         <section id="notes" className="mb-20 scroll-mt-8">
           <SectionHeading title="Engineering Notes" />
           <div className="space-y-4">
-            {notes.map((note) => (
+            {notes.map((note, i) => (
+              <Reveal key={note.slug} delay={i * 80}>
+              <GlowCard className="rounded-lg">
               <Link
-                key={note.slug}
                 href={note.slug}
-                className="group flex flex-col border border-border rounded-lg p-5 bg-surface hover:border-muted transition-colors"
+                className="group flex flex-col border border-border rounded-lg p-5 bg-surface transition-colors"
               >
                 <div className="flex items-start justify-between gap-3 mb-2">
                   <div className="flex items-center gap-2">
@@ -488,13 +501,15 @@ export default function Home() {
                   {note.tags.map((t) => (
                     <span
                       key={t}
-                      className="text-xs font-mono text-muted border border-border px-2.5 py-1 rounded-full"
+                      className="chip text-xs font-mono text-muted border border-border px-2.5 py-1 rounded-full"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
               </Link>
+              </GlowCard>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -503,22 +518,24 @@ export default function Home() {
         <section id="skills" className="mb-20 scroll-mt-8">
           <SectionHeading title="Skills" />
           <div className="space-y-5">
-            {Object.entries(skills).map(([category, items]) => (
-              <div key={category} className="flex flex-col sm:flex-row gap-2 sm:gap-8">
-                <p className="text-sm font-mono text-muted uppercase tracking-wider w-full sm:w-48 flex-shrink-0 pt-0.5">
-                  {category}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {items.map((item) => (
-                    <span
-                      key={item}
-                      className="text-sm font-mono text-subtle border border-border px-3 py-1 rounded"
-                    >
-                      {item}
-                    </span>
-                  ))}
+            {Object.entries(skills).map(([category, items], i) => (
+              <Reveal key={category} delay={i * 60}>
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-8">
+                  <p className="text-sm font-mono text-muted uppercase tracking-wider w-full sm:w-48 flex-shrink-0 pt-0.5">
+                    {category}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {items.map((item) => (
+                      <span
+                        key={item}
+                        className="chip text-sm font-mono text-subtle border border-border px-3 py-1 rounded"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -527,13 +544,12 @@ export default function Home() {
         <section id="interests" className="mb-20 scroll-mt-8">
           <SectionHeading title="Interests" />
           <div className="flex flex-wrap gap-3">
-            {interests.map((interest) => (
-              <span
-                key={interest}
-                className="text-sm text-subtle border border-border px-4 py-2 rounded-full"
-              >
-                {interest}
-              </span>
+            {interests.map((interest, i) => (
+              <Reveal key={interest} delay={i * 50}>
+                <span className="chip inline-block text-sm text-subtle border border-border px-4 py-2 rounded-full">
+                  {interest}
+                </span>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -541,11 +557,13 @@ export default function Home() {
         {/* ── Contact ───────────────────────────────────────── */}
         <section id="contact" className="mb-16 scroll-mt-8">
           <SectionHeading title="Contact" />
-          <p className="text-base text-subtle mb-8 leading-relaxed">
-            Open to backend engineering roles and interesting technical
-            conversations. Usually respond same day.
-          </p>
-          <div className="space-y-4">
+          <Reveal>
+            <p className="text-base text-subtle mb-8 leading-relaxed">
+              Open to backend engineering roles and interesting technical
+              conversations. Usually respond same day.
+            </p>
+          </Reveal>
+          <Reveal delay={100} className="space-y-4">
             <div className="flex items-center gap-3">
               <MapPin size={16} className="text-muted flex-shrink-0" />
               <span className="text-base text-subtle">Bengaluru, India</span>
@@ -581,7 +599,7 @@ export default function Home() {
                 linkedin.com/in/aadith-suresh
               </a>
             </div>
-          </div>
+          </Reveal>
         </section>
 
       </main>
