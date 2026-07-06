@@ -9,6 +9,18 @@ import GlowCard from "@/components/GlowCard";
 
 const experience = [
   {
+    role: "Software Engineer 3",
+    company: "Unifize",
+    period: "Jul 2026 — Present",
+    location: "Bangalore, India",
+    items: [
+      {
+        heading: "Backend Engineering",
+        body: "Building backend systems for Unifize's collaboration platform for quality and process management in regulated industries. Just getting started — more to come.",
+      },
+    ],
+  },
+  {
     role: "Software Engineer 2",
     company: "Infra.Market",
     period: "Apr 2024 — Jun 2026",
@@ -234,8 +246,9 @@ export default function Home() {
           <Reveal delay={120}>
             <p className="text-base text-subtle leading-relaxed">
               I&apos;m <span className="text-text font-medium">Aadith S</span>, a
-              Bengaluru-based backend software engineer with ~3 years of experience
-              designing and managing event-driven microservices. I&apos;ve authored
+              Bengaluru-based backend software engineer with 3+ years of experience
+              designing and managing event-driven microservices, currently at
+              Unifize. I&apos;ve authored
               technical design documents and led the delivery of critical systems
               — KYC deduplication, site deduplication, and deal mining flows.
               Proficient in Go, Kafka, gRPC, and PostgreSQL, with a strong emphasis
